@@ -10,7 +10,7 @@ addLayers();
 
 k.scene("menu", () => {
 
-  k.add([
+  const background = k.add([
     k.sprite("background"),
     k.origin("center"),
     k.pos(k.width()/2, k.height()/2),
@@ -24,13 +24,14 @@ k.scene("menu", () => {
     k.layer("ui"),
     k.origin("center"),
     k.pos(k.width()/2, k.height()/4),
-    k.scale(0.75),
+    k.scale(5),
     "menuText",
   ]);
 
   const menuButtonSeries = new ButtonSeries([
     new Button({
-      name: "play",
+      name: "click [Space] to start",
+      scale: 2.5,
       x: k.width()/2,
       y: k.height()/4 + menuTitle.height + 100,
     }, () => { k.go("game"); }),
@@ -49,7 +50,7 @@ k.scene("game", () => {
     k.text("situation"),
     k.pos(k.width()/2, k.height()/4),
     k.origin("center"),
-    k.scale(0.8),
+    k.scale(4),
     "situationText",
   ]);
 
@@ -59,21 +60,21 @@ k.scene("game", () => {
       text: "one",
       x: k.width()/4,
       y: k.height()/2,
-      scale: 0.5,
+      scale: 2.5,
     }, () => k.go("level1")),
     new Button({
       name: "situationTwo",
       text: "two",
       x: k.width()/2,
       y: k.height()/2,
-      scale: 0.5,
+      scale: 2.5,
     }, () => k.debug.log("2")),
     new Button({
       name: "situationThree",
       text: "three",
       x: 3*k.width()/4,
       y: k.height()/2,
-      scale: 0.5,
+      scale: 2.5,
     }, () => k.debug.log("3")),
   ], 2);
 

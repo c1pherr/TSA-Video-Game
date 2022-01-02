@@ -1,8 +1,8 @@
 import { k } from "../kaboom.js";
 
-const defaultPadding = 50;
+const defaultPadding = 15;
 const defaultTextColor = [0, 0, 255];
-const defaultFillColor = [1, 1, 1];
+const defaultFillColor = [64, 47, 50];
 const defaultScale = 1;
 const normalOutline = [ 3, k.rgb(0, 0, 0) ]
 const selectedOutline = [ 4, k.rgb(0, 255, 0) ];
@@ -111,10 +111,12 @@ export class Button {
     if (selected) {
       this.#buttonFill.unuse("outline");
       this.#buttonFill.use(k.outline(...selectedOutline));
+      this.#buttonText.use(k.color(k.rgb(255, 255, 255)));
     }
     else {
       this.#buttonFill.unuse("outline");
-      this.#buttonFill.use(k.outline(...normalOutline))
+      this.#buttonFill.use(k.outline(...normalOutline));
+      this.#buttonText.use(k.color(k.rgb(0, 0, 255)));
     }
   }
 
